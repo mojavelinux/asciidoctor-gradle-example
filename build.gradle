@@ -1,0 +1,27 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    maven {
+      name 'Bintray Asciidoctor repo'
+      url 'http://dl.bintray.com/content/aalmiray/asciidoctor'
+    }
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'org.asciidoctor:asciidoctor-gradle-plugin:0.8.0-SNAPSHOT'
+  }
+}
+
+apply plugin: 'asciidoctor'
+
+asciidoctor {
+  //baseDir = null
+  //sourceDocumentName = file('src/asciidoc/example-manual.adoc')
+  outputDir = file("$buildDir/docs")
+  options = [
+    eruby: 'erubis',
+    attributes: 'toc=left source-highlighter=coderay idprefix idseparator=- icons=font imagesdir=./images docinfo1 publish-url=http://google.com'
+  ]
+  logDocuments = true
+}

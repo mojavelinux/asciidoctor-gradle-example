@@ -1,0 +1,41 @@
+= Example Manual
+Doc Writer <doc.writer@example.org>
+v1.0
+:example-caption!:
+
+This is a user manual for an example project.
+
+== Introduction
+
+[yell]
+This project does something.
+We just haven't decided what that is yet.
+
+== Source Code
+
+[source,java]
+.Java code from project
+----
+include::src/main/java/example/StringUtils.java[tags=contains,indent=0]
+----
+
+== Images
+
+[.thumb]
+image::sunset.jpg[]
+
+== Attributes
+
+Publish URL:: {publish-url}
+
+docdir:: {docdir}
+docfile:: {docfile}
+projectdir:: {projectdir}
+rootdir:: {rootdir}
+
+== Includes
+
+.include::src/asciidoc/subdir/_b.adoc[]
+====
+include::src/asciidoc/subdir/_b.adoc[]
+====
