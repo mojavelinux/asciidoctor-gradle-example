@@ -19,6 +19,8 @@ We just haven't decided what that is yet.
 include::src/main/java/example/StringUtils.java[tags=contains,indent=0]
 ----
 
+ $ gradle asciidoctor
+
 == Images
 
 [.thumb]
