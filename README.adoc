@@ -9,3 +9,5 @@ The project also includes an example of an Asciidoctor extension written in _Gro
 
 That's it.
 Seriously.
+
+NOTE: Move buildSrc to buildSrc~ to try without loading the Asciidoctor extensions.
