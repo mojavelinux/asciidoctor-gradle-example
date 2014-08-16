@@ -16,7 +16,7 @@ We just haven't decided what that is yet.
 [source,java]
 .Java code from project
 ----
-include::src/main/java/example/StringUtils.java[tags=contains,indent=0]
+include::{projectdir}/src/main/java/example/StringUtils.java[tags=contains,indent=0]
 ----
 
  $ gradle asciidoctor
@@ -28,16 +28,19 @@ image::sunset.jpg[]
 
 == Attributes
 
-Publish URL:: {publish-url}
-
+.Built-in
+asciidoctor-version:: {asciidoctor-version}
 docdir:: {docdir}
 docfile:: {docfile}
 projectdir:: {projectdir}
 rootdir:: {rootdir}
 
+.Custom
+Publish URL:: {publish-url}
+
 == Includes
 
-.include::src/asciidoc/subdir/_b.adoc[]
+.include::subdir/_b.adoc[]
 ====
-include::src/asciidoc/subdir/_b.adoc[]
+include::subdir/_b.adoc[]
 ====

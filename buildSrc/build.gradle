@@ -5,5 +5,5 @@ repositories {
 }
 
 dependencies {
-  compile 'org.asciidoctor:asciidoctor-java-integration:0.1.5-SNAPSHOT'
+  compile 'org.asciidoctor:asciidoctorj:1.5.0-SNAPSHOT'
 }

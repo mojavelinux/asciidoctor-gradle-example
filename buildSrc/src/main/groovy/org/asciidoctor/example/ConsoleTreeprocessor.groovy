@@ -1,22 +1,23 @@
 package org.asciidoctor.example
 
 import org.asciidoctor.extension.Treeprocessor
-import org.asciidoctor.internal.AbstractBlock
-import org.asciidoctor.internal.DocumentRuby
-import org.asciidoctor.internal.Reader
+import org.asciidoctor.ast.Document
+import org.asciidoctor.ast.AbstractBlock
+import org.asciidoctor.extension.Reader
 
 class ConsoleTreeprocessor extends Treeprocessor {
-    ConsoleTreeprocessor(DocumentRuby documentRuby) {
-        super(documentRuby)
+    ConsoleTreeprocessor(Map<String, Object> config) {
+        super(config);
     }
 
-    void process() {
+    Document process(Document document) {
         document.blocks().eachWithIndex { item, index ->
             lines = item.lines()
             if (lines.size() > 0 && lines.first.startsWith('$')) {
                 blocks[index] = convertToListing(item);
             }
         }
+        null
     }
 
     AbstractBlock convertToListing(AbstractBlock block) {
@@ -36,6 +37,6 @@ class ConsoleTreeprocessor extends Treeprocessor {
             }
         }
 
-        createBlock(document, 'listing', resultLines.toString(), attributes, [:])
+        createBlock(block, 'listing', resultLines.toString(), attributes, [:])
     }
 }
