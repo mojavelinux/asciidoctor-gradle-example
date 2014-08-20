@@ -1,6 +1,6 @@
 = Example Manual
 Doc Writer <doc.writer@example.org>
-v1.0
+v1.0, 2014-08-16
 :example-caption!:
 
 This is a user manual for an example project.
@@ -26,12 +26,34 @@ include::{projectdir}/src/main/java/example/StringUtils.java[tags=contains,inden
 [.thumb]
 image::sunset.jpg[]
 
+[ditaa,asciidoctor-diagram-process]
+....
+                   +-------------+
+                   | Asciidoctor |-------+
+                   |   diagram   |       |
+                   +-------------+       | PNG out
+                       ^                 |
+                       | ditaa in        |
+                       |                 v
+ +--------+   +--------+----+    /---------------\
+ |        |---+ Asciidoctor +--->|               |
+ |  Text  |   +-------------+    |   Beautiful   |
+ |Document|   |   !magic!   |    |    Output     |
+ |     {d}|   |             |    |               |
+ +---+----+   +-------------+    \---------------/
+     :                                   ^
+     |          Lots of work             |
+     +-----------------------------------+
+....
+
 == Attributes
 
 .Built-in
 asciidoctor-version:: {asciidoctor-version}
+safe-mode-name:: {safe-mode-name}
 docdir:: {docdir}
 docfile:: {docfile}
+imagesdir:: {imagesdir}
 projectdir:: {projectdir}
 rootdir:: {rootdir}
 

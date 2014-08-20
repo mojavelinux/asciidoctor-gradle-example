@@ -5,20 +5,41 @@ buildscript {
   }
 
   dependencies {
-    classpath 'org.asciidoctor:gradle-plugin:1.5.0-SNAPSHOT'
+    classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.0-SNAPSHOT'
+    classpath 'com.lookout:jruby-gradle-plugin:2.0.+'
   }
 }
 
 apply plugin: 'org.asciidoctor.gradle.asciidoctor'
+apply plugin: 'com.lookout.jruby'
 
-asciidoctorj {
-  version = '1.5.0-SNAPSHOT'
+// enable to use a custom version of AsciidoctorJ
+//repositories {
+//  mavenLocal()
+//}
+//
+//asciidoctorj {
+//  version = '1.5.1-SNAPSHOT'
+//}
+
+dependencies {
+  // FIXME installs asciidoctor transitively; figure out how to exclude it (since AsciidoctorJ provides it already)
+  gems group: 'rubygems', name: 'asciidoctor-diagram', version: '1.2.0'
 }
 
 asciidoctor {
-  //baseDir = null
-  //sourceDocumentName = file('src/asciidoc/example-manual.adoc')
+  dependsOn jrubyPrepareGems
+  // set gemPath to null to isolate, System.getenv()['GEM_PATH'] to use external gem environment
+  gemPath = file('vendor')
+  requires = ['asciidoctor-diagram']
+  // set baseDir to projectDir to enable legacy behavior (resolve includes from root of project)
+  //baseDir = projectDir
   outputDir = file("$buildDir/docs")
+  // NOTE remove the sourceDocumentName / sourceDocumentNames properties to build all non-hidden AsciiDoc files
+  sourceDocumentNames = files('src/asciidoc/example-manual.adoc')
+  // NOTE use the next two properties instead to build an EPUB3 document
+  //sourceDocumentNames = files('src/asciidoc/ebook-spine.adoc')
+  //backend = 'epub3'
   options = [
     attributes: 'toc=left source-highlighter=coderay idprefix idseparator=- icons=font imagesdir=./images docinfo1 publish-url=http://google.com'
   ]

@@ -1,0 +1,5 @@
+= Example Manual
+Doc Writer <doc.writer@example.org>
+v1.0, 2014-08-16
+
+include::example-manual.adoc[]

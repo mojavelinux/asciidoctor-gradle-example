@@ -1,3 +1,4 @@
+/.gemcache/
+/vendor/
 .gradle/
-/build/
-/buildSrc/build/
+build/
