@@ -5,9 +5,9 @@ The project also includes an example of an Asciidoctor extension written in _Gro
 
 == How to build the project
 
- $ gradle asciidoctor
+ $ ./gradlew asciidoctor
 
 That's it.
 Seriously.
 
-NOTE: Move buildSrc to buildSrc~ to try without loading the Asciidoctor extensions.
+NOTE: Move buildSrc to buildSrc.bak to try without loading the Asciidoctor extensions.
