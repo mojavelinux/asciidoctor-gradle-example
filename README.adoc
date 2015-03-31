@@ -1,5 +1,8 @@
 = Asciidoctor Gradle Plugin: Example Project
 
+IMPORTANT: This repository is now out of date.
+The official repository containing examples for the Asciidoctor Gradle plugin is https://github.com/asciidoctor/asciidoctor-gradle-example.
+
 An example project that demonstrates the use of the Asciidoctor Gradle Plugin.
 The project also includes an example of an Asciidoctor extension written in _Groovy_.
 
